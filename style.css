@@ -1,0 +1,22 @@
+.header {
+    display: flex;
+    justify-content: center;
+}
+
+#button-container {
+    display: flex;
+    justify-content: center;
+}
+
+#button-holder {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 400px;
+}
+
+button {
+    height: 40px;
+    width: 80px;
+    margin-top: 10px;
+}

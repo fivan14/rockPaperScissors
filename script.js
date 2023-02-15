@@ -71,3 +71,5 @@ if(totalUser > totalAI) {
 } else {
     console.log(`AI won-score is: ${totalUser}:${totalAI}`)
 }
+
+// added comment
