@@ -29,3 +29,17 @@ const computersChoice =  arr => {
 }
 
 console.log(computersChoice(symbols))
+
+// creating users response, promting user checking if included(case insensitive)
+
+const userPlay = (arr) => {
+    let userInput = prompt('Enter your symbol:')
+    if(arr.includes(userInput.toLowerCase())) {
+        return userInput
+    } else {
+        alert('Did you entered rock, paper or scissors?')
+        return userPlay(arr)
+    }
+}
+
+userPlay(symbols)
