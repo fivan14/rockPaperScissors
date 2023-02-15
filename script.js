@@ -19,3 +19,13 @@ const outcomes = {
         scissors: 0,
     }
 }
+
+// creating function for computer's choice
+const symbols = ['rock', 'paper', 'scissors']
+
+const computersChoice =  arr => {
+    let random = Math.floor(Math.random() * 3)
+    return arr[random]
+}
+
+console.log(computersChoice(symbols))
