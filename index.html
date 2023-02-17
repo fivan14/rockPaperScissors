@@ -1,21 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <body>
-    <div class="header"> <h1>Rock, Paper, Scissors game</h1></div>
-    <div id="button-container">
-        <div id="button-holder">
-            <button id="rock" value="rock">Rock</button>
-            <button id="paper" value="paper">Paper</button>
-            <button id="scissors" value="scissors">Scissors</button>
+    <section class="hero is-link">
+        <div class="hero-body">
+            <p class="title">Rock, Paper, Scissors game!</p>
+        </div>
+    </section>
+    
+    <div class="columns">
+        <div class="column is-4">
+        </div>
+        <div class="column is-4 mt-6" style="">
+            <div class="box is-flex is-flex-direction-column is-justify-content-center">
+                
+                <div id="result" class="box is-flex is-justify-content-center is-align-self-center" style="width: 88%">
+                    <p class="is-size-1 my-6">0-0</p>
+                </div>
+                
+                <div id="button-holder" class="is-flex is-justify-content-space-around is-flex-wrap-wrap" style="width: 100%">
+                    <button id="rock" class="button is-primary has-size-1" value="rock">Rock</button>
+                    <button id="paper" class="button is-primary" value="paper">Paper</button>
+                    <button id="scissors" class="button is-primary" value="scissors">Scissors</button>
+                </div>     
+            </div>
         </div>
     </div>
-    <script src="./script.js"></script>
+    <!--<script src="./script.js"></script>-->
 </body>
 </html>
