@@ -1,3 +1,23 @@
+const rock = document.querySelector('#rock')
+const paper = document.querySelector('#paper')
+const scissors = document.querySelector('#scissors')
+const result = document.querySelector('#result')
+const aiSymbol = document.querySelector('#ai-symbol')
+const userSymbol = document.querySelector('#user-symbol')
+const roundInfo = document.querySelector('#round-info')
+const infoBox = document.querySelector('#round-info-box')
+const buttonHolder = document.querySelector('#button-holder')
+
+const simbols = [...document.querySelectorAll('button')]
+
+// creating function for computer's choice
+const symbols = ['rock', 'paper', 'scissors']
+
+const computersChoice =  arr => {
+    let random = Math.floor(Math.random() * 3)
+    return arr[random]
+}
+
 // add a table with possible outcomes for every game
 
 const outcomes = {
@@ -20,56 +40,57 @@ const outcomes = {
     }
 }
 
-// creating function for computer's choice
-const symbols = ['rock', 'paper', 'scissors']
+// event listeners
 
-const computersChoice =  arr => {
-    let random = Math.floor(Math.random() * 3)
-    return arr[random]
-}
-
-console.log(computersChoice(symbols))
-
-// creating users response, promting user checking if included(case insensitive)
-
-const userPlay = (arr) => {
-    let userInput = prompt('Enter your symbol:')
-    if(arr.includes(userInput.toLowerCase())) {
-        return userInput.toLowerCase()
-    } else {
-        alert('Did you entered rock, paper or scissors?')
-        return userPlay(arr)
-    }
-}
-
-// userPlay(symbols)
-
-// creating for loop, playing 5 rounds per game
+let numOfGames = 1;
 let totalUser = 0;
 let totalAI = 0;
 
-for (let i = 0; i < 5;) {
-    
-    let user = userPlay(symbols)
-    let computer = computersChoice(symbols)
-    if(outcomes[user][computer] > 0) {
-        console.log(`You won! ${user} beats ${computer}`)
-        i++
-        totalUser++
-    } else if (outcomes[user][computer]) {
-        console.log(`You lost! ${computer} beats ${user}`)
-        i++
-        totalAI++
-    } else {
-        console.log(`It's a draw! You both chose ${user}`)
-    }
+simbols.forEach(simbol=> {
 
-}
+    simbol.addEventListener('click', event => {
+        infoBox.classList.add('box')
 
-if(totalUser > totalAI) {
-    console.log(`User won-score is: ${totalUser}:${totalAI}`)
-} else {
-    console.log(`AI won-score is: ${totalUser}:${totalAI}`)
-}
+        let computer = computersChoice(symbols)
+        let user = simbol.value
+        
+        if (numOfGames === 5) {
+            
+            infoBox.classList.remove('box')
+            userSymbol.textContent = ''
+            aiSymbol.textContent = ''
+            roundInfo.textContent = ''
+            buttonHolder.innerHTML = '<button onClick="window.location.reload()" class="button is-primary is-large">Play again</button>'
 
-// added comment
+            
+            simbols.forEach(simbol => {
+
+                simbol.setAttribute('disabled', 'disabled')
+                if(totalUser > totalAI) {
+                    result.innerHTML = 'You won!</br> Congratulations'
+                } else {
+                    result.textContent = 'Human eliminated!'
+                }
+            })
+
+        } else {
+
+            if(outcomes[user][computer] > 0) {
+                roundInfo.textContent = `You won! ${user} beats ${computer}`
+                totalUser++
+                numOfGames++
+                result.textContent = `${totalUser}-${totalAI}`
+            } else if (outcomes[user][computer]) {
+                roundInfo.textContent = `You lost! ${computer} beats ${user}`
+
+                totalAI++
+                numOfGames++
+                result.textContent = `${totalUser}-${totalAI}`
+            } else {
+                roundInfo.textContent = `It's a draw! You both chose ${user}`
+            }
+            userSymbol.textContent = user
+            aiSymbol.textContent = computer
+        }
+    })
+})

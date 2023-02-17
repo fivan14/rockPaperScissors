@@ -9,20 +9,25 @@
     <title>Document</title>
 </head>
 <body>
-    <section class="hero is-link">
+    <section class="hero is-primary is-small">
         <div class="hero-body">
             <p class="title">Rock, Paper, Scissors game!</p>
         </div>
     </section>
     
-    <div class="columns">
-        <div class="column is-4">
+    <div class="columns" style="margin-top: 5%">
+        <div class="column is-4 is-flex is-justify-content-center">
+            <figure class="image mt-5">
+                <img src="./user.jpg" style="height:330px; width: auto">
+              </figure>
         </div>
-        <div class="column is-4 mt-6" style="">
+        <div class="column is-4 mt-6">
+            <div class="is-flex is-justify-content-center">
+            </div>
             <div class="box is-flex is-flex-direction-column is-justify-content-center">
                 
-                <div id="result" class="box is-flex is-justify-content-center is-align-self-center" style="width: 88%">
-                    <p class="is-size-1 my-6">0-0</p>
+                <div class="box is-flex is-justify-content-center is-align-self-center" style="width: 88%">
+                    <p id='result' class="is-size-1 my-6">0-0</p>
                 </div>
                 
                 <div id="button-holder" class="is-flex is-justify-content-space-around is-flex-wrap-wrap" style="width: 100%">
@@ -32,7 +37,30 @@
                 </div>     
             </div>
         </div>
+        <div class="column is-4 is-flex is-justify-content-center">
+            <figure class="image mt-6">
+                <img src="./evilAi.jpg" style="height:300px; width: auto">
+            </figure>
+        </div>
     </div>
-    <!--<script src="./script.js"></script>-->
+
+    <div class="columns">
+        <div class="column is-4 mt-6  is-flex is-justify-content-center">
+            <p id="user-symbol" class="is-size-1"></p>
+        </div>
+        <div id="round-info-box"class="column is-4 mt-6 is-flex is-justify-content-center">
+            <div class="is-flex is-justify-content-center" style="width: 60%">
+                <p id="round-info" class="is-size-2"></p>
+            </div>
+        </div>
+        <div class="column is-4 mt-6  is-flex is-justify-content-center">
+            <p id="ai-symbol" class="is-size-1"></p>
+        </div>
+    </div>
+
+    <footer class="footer has-background-primary" style="position: fixed; left: 0; bottom: 0; width: 100%;">
+        <div class="content has-text-centered has-text-link-light"><p>Created by TOP student</p></div>
+    </footer>
+    <script src="./script.js"></script>
 </body>
 </html>
