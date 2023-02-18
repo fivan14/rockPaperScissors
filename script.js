@@ -67,9 +67,9 @@ simbols.forEach(simbol=> {
 
                 simbol.setAttribute('disabled', 'disabled')
                 if(totalUser > totalAI) {
-                    result.innerHTML = 'You won!</br> Congratulations'
+                    result.innerHTML = 'You won!'
                 } else {
-                    result.textContent = 'Human eliminated!'
+                    result.textContent = 'You Lost!'
                 }
             })
 
